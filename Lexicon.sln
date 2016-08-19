@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lingva.DataLoad", "Lingva\Lingva.DataLoad.csproj", "{96BED2D3-DE00-44FA-BBBE-E606C790EABA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{58926352-82B5-4DB7-B824-20B48D1D1EC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUITestAuth", "WebUI\WebUITestAuth.csproj", "{D488A78F-A8DE-4C56-8528-F67D5A112307}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcPaging", "MvcPaging\MvcPaging.csproj", "{AAF30968-1118-4937-B392-E9863EA8D76D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.WebUI", "MvcPaging.Demo\Lexicon.WebUI.csproj", "{3F6E4B30-82C7-4033-90D0-2E27E3ACE75F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicon.DAL", "Lexicon.DAL\Lexicon.DAL.csproj", "{A3D2CF00-224A-408F-AE03-A39912F08990}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96BED2D3-DE00-44FA-BBBE-E606C790EABA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96BED2D3-DE00-44FA-BBBE-E606C790EABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96BED2D3-DE00-44FA-BBBE-E606C790EABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96BED2D3-DE00-44FA-BBBE-E606C790EABA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58926352-82B5-4DB7-B824-20B48D1D1EC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58926352-82B5-4DB7-B824-20B48D1D1EC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58926352-82B5-4DB7-B824-20B48D1D1EC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58926352-82B5-4DB7-B824-20B48D1D1EC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D488A78F-A8DE-4C56-8528-F67D5A112307}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D488A78F-A8DE-4C56-8528-F67D5A112307}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D488A78F-A8DE-4C56-8528-F67D5A112307}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D488A78F-A8DE-4C56-8528-F67D5A112307}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAF30968-1118-4937-B392-E9863EA8D76D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAF30968-1118-4937-B392-E9863EA8D76D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAF30968-1118-4937-B392-E9863EA8D76D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAF30968-1118-4937-B392-E9863EA8D76D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F6E4B30-82C7-4033-90D0-2E27E3ACE75F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F6E4B30-82C7-4033-90D0-2E27E3ACE75F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F6E4B30-82C7-4033-90D0-2E27E3ACE75F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F6E4B30-82C7-4033-90D0-2E27E3ACE75F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3D2CF00-224A-408F-AE03-A39912F08990}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3D2CF00-224A-408F-AE03-A39912F08990}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3D2CF00-224A-408F-AE03-A39912F08990}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3D2CF00-224A-408F-AE03-A39912F08990}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

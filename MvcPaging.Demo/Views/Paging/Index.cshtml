@@ -1,0 +1,30 @@
+﻿@using MvcPaging.Demo.Models
+@model IPagedString
+@{
+    ViewBag.Title = "Browse all products";
+}
+<h2>@ViewBag.Title</h2>
+@*<table class="grid">
+    <thead>
+        <tr>
+            <th>Product name</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Category</td>
+            </tr>}
+    </tbody>
+</table>*@
+
+<div style="white-space: pre-line">
+      @Model.CurrentPageContent
+</div>
+<div class="pager">
+    @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount)
+</div>
+
