@@ -15,5 +15,6 @@ namespace Lingva
         { }
 
         public DbSet<FrequencyListItem> FrequencyListItems { get; set; }
+        public DbSet<Word> Words { get; set; }
     }
 }

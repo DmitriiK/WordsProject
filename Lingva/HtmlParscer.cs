@@ -19,15 +19,33 @@ namespace Lingva
         public void LoadFreqListFromSite()
         {
 
-            var lst = ParseProjectGutenbergFL().Result;
-
+            var lst = ParseProjectGutenbergFL().Result.Where(x=>!String.IsNullOrEmpty(x.Word.WordString));
+            /**/
             //с сайта приходят дубликаты, поэтому приходитя снова группировать и делать общий ранг
             var groupedList = lst.GroupBy(x => new { x.FrequencyListID, x.Word }).Select(group => new FrequencyListItem { FrequencyListID = group.Key.FrequencyListID, Word = group.Key.Word, Count = group.Sum(x => x.Count) }).OrderBy(y=>y.Count).ToList();
             for (int ind = 0; ind < groupedList.Count; ind++) groupedList[ind].Rank = ind + 1;
+            //var words = lst.GroupBy(x => x.Word).Select(w => new Word { WordString = w.First().Word.WordString }).ToList();           
 
-            using (EFDBContext cont = new EFDBContext())
+             using (EFDBContext cont = new EFDBContext())
             {
-                cont.FrequencyListItems.AddRange(lst);
+                //cont.Configuration.AutoDetectChangesEnabled = false;
+                var ll = cont.Words.ToLookup(x=>x.WordString.ToLower(), x=>x.WordID);
+                var testcnt = 0;
+                foreach (var fi in groupedList)
+                {
+                    testcnt++;
+                    var llw =ll[fi.Word.WordString.ToLower()];
+                    if (llw.Count()==0)
+                    {
+                        cont.Words.Add(fi.Word);
+                        cont.SaveChanges();
+                        fi.WordID = fi.Word.WordID;//note - !!? why does'n it track this
+                    }
+                    else fi.WordID = llw.FirstOrDefault();
+                    fi.Word = null; //todo разобраться как правильно сохранять значения с navigation propery
+                }
+                cont.FrequencyListItems.AddRange(groupedList);
+               // cont.ChangeTracker.DetectChanges();
                 cont.SaveChanges();
             }
         }
@@ -73,7 +91,7 @@ namespace Lingva
                             word = word.Substring(0, word.IndexOf(" or "));
                         var cntstr = row.Cells[2].TextContent;
                         var cnt = decimal.Parse(Regex.Match(cntstr, @"^\d+").ToString());
-                        lst.Add(new FrequencyListItem { FrequencyListID = 1, Rank = rank, Word = word, Count = cnt });
+                        lst.Add(new FrequencyListItem { FrequencyListID = 1, Rank = rank, Word = new Word { WordString = word}, Count = cnt });
                     }
 
                     //var tst = lst.Where(x => x.Word == "quartermaine").FirstOrDefault();

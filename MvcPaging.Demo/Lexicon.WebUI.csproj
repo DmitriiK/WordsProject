@@ -201,13 +201,7 @@
     <Content Include="Scripts\SyntaxHighlighter\shBrushXml.js" />
     <Content Include="Scripts\SyntaxHighlighter\shCore.js" />
     <Content Include="Scripts\SyntaxHighlighter\shLegacy.js" />
-    <Content Include="Views\Paging\Bootstrap.cshtml" />
-    <Content Include="Views\Paging\CustomPageRouteValueKey.cshtml" />
-    <Content Include="Views\Paging\ProductsByCategories.cshtml" />
-    <Content Include="Views\Paging\Bootstrap3.cshtml" />
     <Content Include="Views\Paging\Index.cshtml" />
-    <Content Include="Views\Paging\IndexAjax.cshtml" />
-    <Content Include="Views\Paging\ProductsByCategory.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
