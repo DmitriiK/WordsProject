@@ -22,7 +22,7 @@ namespace Lingva
             var lst = ParseProjectGutenbergFL().Result.Where(x=>!String.IsNullOrEmpty(x.Word.WordString));
             /**/
             //с сайта приходят дубликаты, поэтому приходитя снова группировать и делать общий ранг
-            var groupedList = lst.GroupBy(x => new { x.FrequencyListID, x.Word }).Select(group => new FrequencyListItem { FrequencyListID = group.Key.FrequencyListID, Word = group.Key.Word, Count = group.Sum(x => x.Count) }).OrderBy(y=>y.Count).ToList();
+            var groupedList = lst.GroupBy(x => new { x.FrequencyListID, x.Word }).Select(group => new FrequencyListItem { FrequencyListID = group.Key.FrequencyListID, Word = group.Key.Word, Count = group.Sum(x => x.Count) }).OrderByDescending(y=>y.Count).ToList();
             for (int ind = 0; ind < groupedList.Count; ind++) groupedList[ind].Rank = ind + 1;
             //var words = lst.GroupBy(x => x.Word).Select(w => new Word { WordString = w.First().Word.WordString }).ToList();           
 
