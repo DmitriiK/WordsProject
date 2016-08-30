@@ -26,15 +26,22 @@ namespace UnitTestProject1
             tl.TraversePath(@"D:\MY_DOCS\American Nation Corpus\masc_500k_texts", 1);
         }
 
-  [TestMethod]
-        public void TestMethod2()
+  
+        public void TestLoadFreqLstFromSite()
         {
             var x = new HtmlParscer();
             x.LoadFreqListFromSite();
 
         }
+[TestMethod]
+        public void TestLoadFreqLstFromTextFile()
+        {
+            var x = new TextLoader();
+            x.LoadFreqListFromText(@"D:\MY_DOCS\from e-libs\The Lost Symbol.txt",2);
 
-      
+        }
+
+
         public async Task TestParseURl()
         {
             var address = "https://en.wiktionary.org/wiki/Wiktionary:Frequency_lists/TV/2006/1-1000";

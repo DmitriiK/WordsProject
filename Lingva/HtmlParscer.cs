@@ -23,30 +23,10 @@ namespace Lingva
             /**/
             //с сайта приходят дубликаты, поэтому приходитя снова группировать и делать общий ранг
             var groupedList = lst.GroupBy(x => new { x.FrequencyListID, x.Word }).Select(group => new FrequencyListItem { FrequencyListID = group.Key.FrequencyListID, Word = group.Key.Word, Count = group.Sum(x => x.Count) }).OrderByDescending(y=>y.Count).ToList();
-            for (int ind = 0; ind < groupedList.Count; ind++) groupedList[ind].Rank = ind + 1;
-            //var words = lst.GroupBy(x => x.Word).Select(w => new Word { WordString = w.First().Word.WordString }).ToList();           
-
+            
              using (EFDBContext cont = new EFDBContext())
             {
-                //cont.Configuration.AutoDetectChangesEnabled = false;
-                var ll = cont.Words.ToLookup(x=>x.WordString.ToLower(), x=>x.WordID);
-                var testcnt = 0;
-                foreach (var fi in groupedList)
-                {
-                    testcnt++;
-                    var llw =ll[fi.Word.WordString.ToLower()];
-                    if (llw.Count()==0)
-                    {
-                        cont.Words.Add(fi.Word);
-                        cont.SaveChanges();
-                        fi.WordID = fi.Word.WordID;//note - !!? why does'n it track this
-                    }
-                    else fi.WordID = llw.FirstOrDefault();
-                    fi.Word = null; //todo разобраться как правильно сохранять значения с navigation propery
-                }
-                cont.FrequencyListItems.AddRange(groupedList);
-               // cont.ChangeTracker.DetectChanges();
-                cont.SaveChanges();
+                cont.SaveFI(groupedList.ReRank());
             }
         }
         public async Task<List<FrequencyListItem>> ParseProjectGutenbergFL()

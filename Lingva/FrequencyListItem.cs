@@ -28,4 +28,19 @@ namespace Lingva
         public string WordString { get; set; }
 
     }
+    public static class FrequencyListItemExt
+    {
+        public static IList<FrequencyListItem> ReRank(this IList<FrequencyListItem> lst)
+        {
+            var ordLst = lst.OrderByDescending(x => x.Count).ToList();
+            var ind = 0;
+            foreach (var fi in ordLst)
+            {
+                ind++;
+                fi.Rank = ind;
+            }
+            return ordLst;
+        }
+
+    }
 }
